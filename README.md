@@ -1,77 +1,63 @@
-    # J1939 CAN Bench Reader
+# J1939 CAN Bench Reader
 
-    Independent public portfolio project for **Python**, **automation**,
-    **systems integration** and **solutions engineering**.
+Independent public portfolio project for **Python**, **CAN**, **J1939 parsing** and **bench documentation**.
 
-    This repository was created from scratch with a fictional domain and
-    synthetic data. It does not contain corporate code, real data, private
-    endpoints, credentials, logs or proprietary rules.
+This repository was created from scratch with synthetic frames and generic examples. It does not contain corporate code, real data, private endpoints, credentials, logs or proprietary rules.
 
-    ## Problem
+## Problem
 
-    CAN bench work needs safe examples for frame reading, parsing and serial output.
+CAN bench examples need safe synthetic frames and a parser that explains 29-bit J1939 identifiers without relying on private captures.
 
-    ## Objective
+## What It Demonstrates
 
-    Demonstrate generic CAN/J1939 parsing and bench documentation with fictional frames.
+- 29-bit CAN ID validation.
+- Priority, reserved bit and data page extraction.
+- PDU format and PDU specific decomposition.
+- PGN calculation for PDU1 and PDU2 frames.
+- Source address and destination address handling.
+- Synthetic CSV frame parsing and focused tests.
 
-    ## Current Features
+## Architecture
 
-    - Synthetic CAN frames.
-- Generic CAN ID parser.
-- Arduino serial demo.
-- Bench documentation foundation.
+```mermaid
+flowchart LR
+    A["Synthetic frame CSV"] --> B["CAN ID parser"]
+    B --> C["J1939 fields"]
+    C --> D["Parsed records"]
+```
 
-    ## Architecture
+See [docs/architecture.md](docs/architecture.md) for details.
 
-    ```mermaid
-    flowchart LR
-        A["Synthetic input"] --> B["Python processing"]
-        B --> C["Rules / validation"]
-        C --> D["Generated local output"]
-        D --> E["Future API / dashboard"]
-    ```
+## Stack
 
-    See [docs/architecture.md](docs/architecture.md) for details.
+`Python` `CSV` `CAN` `J1939 concepts` `Arduino demo` `PyTest`
 
-    ## Stack
+## Run Locally
 
-    Current:
+```powershell
+python -m pip install -e .
+python examples/run_demo.py
+```
 
-    `Python` `Arduino` `CAN` `J1939 concepts` `Synthetic frames`
+## Run Tests
 
-    Planned evolution:
+```powershell
+python -m pip install -e ".[dev]"
+pytest
+```
 
-    - MCP2515
-- Hardware bench tests
-- PyTest
-- Docs
-- CI
+## Technical Decisions
 
-    ## Run Locally
+- Frames are synthetic and created only to exercise parser behavior.
+- The parser handles PDU1 and PDU2 PGN rules because this is the core technical value of the project.
+- Hardware support remains separate from the parser so tests do not require a CAN adapter.
 
-    ```powershell
-    python examples/run_demo.py
-    ```
+## Roadmap
 
-    The demo uses only files under `data/sample/` and writes generated output
-    to ignored local folders.
+- Add more public synthetic PGN examples.
+- Add adapter abstraction for future bench tests.
+- Add documentation references to public protocol material.
 
-    ## Repository Workflow
+## Security and Independence
 
-    This project is intended to evolve through:
-
-    - Issues for planned work.
-    - Milestones for learning phases.
-    - Small branches and pull requests.
-    - Releases when a useful increment is ready.
-
-    Draft issues are documented in [docs/github-issues.md](docs/github-issues.md).
-
-    ## Roadmap
-
-    See [ROADMAP.md](ROADMAP.md).
-
-    ## Security and Independence
-
-    See [SECURITY.md](SECURITY.md) and [DISCLAIMER.md](DISCLAIMER.md).
+See [SECURITY.md](SECURITY.md) and [DISCLAIMER.md](DISCLAIMER.md).
