@@ -1,0 +1,9 @@
+[project]
+name = "j1939-can-bench-reader"
+version = "0.1.0"
+description = "Public CAN/J1939 bench reader lab with synthetic frames and generic parsing."
+requires-python = ">=3.11"
+dependencies = []
+
+[tool.setuptools.packages.find]
+where = ["src"]
