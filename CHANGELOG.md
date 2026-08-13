@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.3.0 - Portfolio professionalization
+
+- Added GitHub Actions CI with Ruff, PyTest and coverage.
+- Added parser coverage for `0x`-prefixed synthetic CAN identifiers.
+- Polished README badges, examples and J1939 evaluation notes.
+
 ## v0.2.0 - J1939 identifier decomposition
 
 - Added PDU1/PDU2-aware PGN calculation.

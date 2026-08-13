@@ -17,6 +17,14 @@ def test_parse_pdu2_can_id() -> None:
     assert parsed["pdu_type"] == "PDU2"
 
 
+def test_parse_accepts_0x_prefix() -> None:
+    parsed = parse_can_id("0x0CF00421")
+
+    assert parsed["priority"] == 3
+    assert parsed["pgn"] == 61444
+    assert parsed["source_address"] == 33
+
+
 def test_parse_pdu1_can_id_uses_destination_address() -> None:
     parsed = parse_can_id("18EAFF33")
 
