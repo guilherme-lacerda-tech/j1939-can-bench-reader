@@ -74,6 +74,10 @@ First PGN: 65281
 
 See [ROADMAP.md](ROADMAP.md).
 
+## Related Project
+
+- [can-j1939-firmware-sniffer-lab](https://github.com/guilherme-lacerda-tech/can-j1939-firmware-sniffer-lab): deeper firmware/sniffer lab with MCP2515 concepts, filtering, statistics and CSV/JSON export.
+
 ## Security
 
 All frames are synthetic and public-safe. No private protocol extensions, customer data or employer captures are included.
